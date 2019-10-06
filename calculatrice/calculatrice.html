@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CALCU.css">
+    <title>Calculatrice</title>
+
+</head>
+
+<body id="corps">
+    <div class="container">
+        <div id="result"></div>
+        <div class="block">
+            <button class="action btn clear" id="CE">CE</button>
+            <button class="action btn return" id="suppr">←</button>
+            <button class="action btn pourcent" value="%">%</button>
+            <button class="action btn add" value="+">+</button>
+            <button class="btn num seven" value="7">7</button>
+            <button class="btn num height" value="8">8</button>
+            <button class="btn num nine" value="9">9</button>
+            <button class="btn num action substract" value="-">-</button>
+            <button class="btn num four" value="4">4</button>
+            <button class="btn num five" value="5">5</button>
+            <button class="btn num six" value="6">6</button>
+            <button class="action btn multiply" value="*">X</button>
+            <button class="btn num one" value="1">1</button>
+            <button class="btn num two" value="2">2</button>
+            <button class="btn num three" value="3">3</button>
+            <button class="action btn divide" value="/">/</button>
+            <button class="btn num zero" value="0">0</button>
+            <button class="action btn environ" value="+-">+-</button>
+            <button class="action btn vir" value=".">,</button>
+            <button class="action btn resu" id="resu">=</button>
+        </div>
+    </div>
+    <script>
+        //////////////////////screen//////////////////////
+
+        let button = document.getElementsByClassName("btn");
+
+        let affichage = document.getElementById("result");
+
+        function resultat(){
+            affichage.textContent += this.value;
+        }
+        
+        for (let i = 0; i < button.length; i++) {
+            button[i].addEventListener("click", resultat);
+        }
+        /////////////////////////calcul////////////////////////
+
+        let egal = document.getElementById("resu");
+       egal.addEventListener("click", result);
+        
+        let clear = document.getElementById("CE");
+       clear.addEventListener("click", reset);
+
+         let effacer = document.getElementById("suppr");
+        effacer.addEventListener("click", delet);
+      
+       function reset() {
+           affichage.textContent = "";
+       }
+
+       function delet() {
+          affichage.textContent = affichage.textContent.slice(0, -1, "");
+      }
+       function result(){
+           affichage.textContent = (eval(affichage.textContent));
+       }
+    </script>
+    <!---------------------------------------fact--------------------------------------->
+        <div class="fact">
+            <p id="para">"Chuck Noriss sait finir un rubicube contrairement à J.B" -yohann-</p>
+            <button id="button">Nouveau propos</button>
+        </div>
+
+        <script>
+            let buttons = document.getElementById("button");
+        let p = document.getElementById("para");
+        let table = []
+        table[0] = "Chuck Norris peut casser trois pattes à un canard.";
+        table[1] = "Chuck Norris est la raison pour laquelle Charlie se cache.";
+        table[2] = "Chuck Norris a déjà participé à l'Île de la Tentation : 12 morts, 12 grossesses.";
+        table[3] = "Chuck Norris peut taguer le mur du son.";
+        table[4] = "Chuck Norris a fait loucher un cyclope.";
+
+        ////////////////////////changement de phrase//////////////////////////////
+
+        function random() {
+            let changement = table[Math.floor(Math.random() * table.length)];
+            return changement;
+        }
+
+        function newText() {
+            p.textContent = random();
+            p.style
+        }
+        buttons.addEventListener("click", newText);
+        
+        </script>
+</body>
+
+</html>

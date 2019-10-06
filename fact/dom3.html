@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fact</title>
+</head>
+
+<body id="corps">
+    <div class="block">
+        <p id="para" class="bt">"Chuck Noriss sait finir un rubicube contrairement à J.B" -yohann-</p>
+        <button id="button">New quote</button>
+       
+    <!--------------------------------------style----------------------------------------------->
+    <style>
+        body {
+
+            background-color: orangered;
+
+        }
+
+        .block {
+            position: absolute;
+            background-color: white;
+            padding: auto;
+            width: 53vw;
+            height: 16vw;
+            color: orangered;
+            font-size: 35px;
+            top: 13vw;
+            left: 23vw;
+            text-align: center;
+            border-radius: 2px;
+
+        }
+
+        #button {
+            width: 8vw;
+            height: 3vw;
+            color: white;
+            background-color: orangered;
+            position: absolute;
+            left: 43vw;
+            top: 12vw;
+        }
+
+        p {
+            margin: auto;
+        }
+    </style>
+<!----------------------------------------------fin style--------------------------------------------->
+    <script>
+        ////////////////////////les petits boutons////////////////////////
+        let boutton = document.getElementsByClassName("bt");
+        for (let i = 0; i < boutton.length; i++) {
+            boutton[i].addEventListener("click", newText);
+            boutton[i].addEventListener("click", newColor);
+        }
+
+
+
+
+
+        ////////////////////////////fin/////////////////////////////////
+        let button = document.getElementById("button");
+        let p = document.getElementById("para");
+        let table = []
+        table[0] = "Chuck Norris peut casser trois pattes à un canard.";
+        table[1] = "Chuck Norris est la raison pour laquelle Charlie se cache.";
+        table[2] = "Chuck Norris a déjà participé à l'Île de la Tentation : 12 morts, 12 grossesses.";
+        table[3] = "Chuck Norris peut taguer le mur du son.";
+        table[4] = "Chuck Norris a fait loucher un cyclope.";
+
+        ////////////////////////changement de phrase//////////////////////////////
+
+        function random() {
+            let changement = table[Math.floor(Math.random() * table.length)];
+            return changement;
+        }
+
+        function newText() {
+            p.textContent = random();
+            p.style
+        }
+        button.addEventListener("click", newText);
+       
+
+        /////////////////////////changement de couleur///////////////////////////////////
+
+        let body = document.getElementById("corps")
+        let table_color = []
+        table_color[0] = "black";
+        table_color[1] = "red";
+        table_color[2] = "green";
+        table_color[3] = "purple";
+        table_color[4] = "blue";
+        table_color[5] = "orangered";
+
+        function random_color() {
+            let color = table_color[Math.floor(Math.random() * table_color.length)];
+            return color;
+        }
+
+        function newColor() {
+
+            let backgroundcolor = table_color[Math.floor(Math.random() * table_color.length)];
+            p.style.color = backgroundcolor;
+            body.style.background = backgroundcolor;
+            button.style.background = backgroundcolor;
+        }
+        button.addEventListener("click", newColor);
+        
+    </script>
+</body>
+
+</html>
